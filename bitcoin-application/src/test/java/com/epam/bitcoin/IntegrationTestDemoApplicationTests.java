@@ -1,4 +1,4 @@
-package com.epam.bitcoing;
+package com.epam.bitcoin;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
