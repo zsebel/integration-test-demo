@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class IntegrationTestDemoApplication {
+public class BitcoinApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(IntegrationTestDemoApplication.class, args);
+		SpringApplication.run(BitcoinApplication.class, args);
 	}
 
 }

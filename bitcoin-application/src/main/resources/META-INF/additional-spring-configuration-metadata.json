@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "coindesk.baseUrl",
+      "type": "java.lang.String",
+      "description": "Base url for CoinDesk APIs."
+  }
+] }
