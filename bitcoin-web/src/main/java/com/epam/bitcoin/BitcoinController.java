@@ -1,7 +1,5 @@
 package com.epam.bitcoin;
 
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +15,7 @@ public class BitcoinController {
     }
 
     @GetMapping("/api/bitcoin/prices")
-    public Map<String, Float> fetchPrice() {
-        return bitcoinService.getPrices();
+    public BitcoinResponse fetchPrice() {
+        return new BitcoinResponse(bitcoinService.getPrices());
     }
 }

@@ -22,6 +22,7 @@
 		<module>bitcoin-service</module>
 		<module>bitcoin-web</module>
 		<module>bitcoin-application</module>
+		<module>bitcoin-integration</module>
 	</modules>
 
 	<properties>
@@ -43,6 +44,11 @@
 			<dependency>
 				<groupId>com.epam</groupId>
 				<artifactId>bitcoin-web</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.epam</groupId>
+				<artifactId>bitcoin-application</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 		</dependencies>
