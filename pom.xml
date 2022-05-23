@@ -27,6 +27,7 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<wiremock.version>2.27.2</wiremock.version>
 	</properties>
 
 	<dependencyManagement>
@@ -50,6 +51,12 @@
 				<groupId>com.epam</groupId>
 				<artifactId>bitcoin-application</artifactId>
 				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.tomakehurst</groupId>
+				<artifactId>wiremock</artifactId>
+				<version>${wiremock.version}</version>
+				<scope>test</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

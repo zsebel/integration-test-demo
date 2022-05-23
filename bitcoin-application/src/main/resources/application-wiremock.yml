@@ -1,0 +1,2 @@
+coindesk:
+  baseUrl: "http://localhost:8089"
