@@ -28,7 +28,7 @@ public class NoMockingIntegrationTest {
     private TestRestTemplate testRestTemplate;
 
     @Test
-    public void test() {
+    public void testBitcoinPricesShouldReturnUpToDatePricesFromCoinDesk() {
         // GIVEN
 
         // WHEN
