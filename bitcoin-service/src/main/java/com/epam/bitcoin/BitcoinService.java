@@ -7,15 +7,15 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.epam.bitcoin.client.BitcoinRestClient;
+import com.epam.bitcoin.client.BitcoinClient;
 import com.epam.bitcoin.domain.CoinDeskResponse;
 
 @Service
 public class BitcoinService {
 
-    private final BitcoinRestClient bitcoinClient;
+    private final BitcoinClient bitcoinClient;
 
-    BitcoinService(BitcoinRestClient bitcoinClient) {
+    BitcoinService(BitcoinClient bitcoinClient) {
         this.bitcoinClient = bitcoinClient;
     }
 

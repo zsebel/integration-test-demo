@@ -13,7 +13,7 @@ import com.epam.bitcoin.domain.CoinDeskResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class BitcoinRestClient {
+public class BitcoinRestClient implements BitcoinClient {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BitcoinRestClient.class);
     private static final String BITCOIN_PRINCE_INDEX_ENDPOINT = "/v1/bpi/currentprice.json";
