@@ -38,8 +38,8 @@ public class BitcoinRestClient {
             LOGGER.info("<== The following response was returned: " + objectMapper.writeValueAsString(coinDeskResponse));
         } catch (RestClientException exception) {
             LOGGER.error("The following error occurred during CoinDesk call: " + exception.getMessage());
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
+        } catch (JsonProcessingException exception) {
+            LOGGER.error("An error occurred during payload processing: " + exception);
         }
         return Optional.ofNullable(coinDeskResponse);
     }
