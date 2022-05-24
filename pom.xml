@@ -28,6 +28,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<wiremock.version>2.27.2</wiremock.version>
+		<cucumber-bom.version>7.0.0</cucumber-bom.version>
 	</properties>
 
 	<dependencyManagement>
@@ -57,6 +58,13 @@
 				<artifactId>wiremock</artifactId>
 				<version>${wiremock.version}</version>
 				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>io.cucumber</groupId>
+				<artifactId>cucumber-bom</artifactId>
+				<version>${cucumber-bom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
