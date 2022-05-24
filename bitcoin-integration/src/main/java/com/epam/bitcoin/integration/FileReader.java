@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
-import com.epam.bitcoin.BitcoinResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Component
@@ -27,5 +26,15 @@ public class FileReader {
             LOGGER.error("Failed to load file.");
         }
         return (T) result;
+    }
+
+    public byte[] readFileToBytes(Resource resource) {
+        byte[] result = null;
+        try {
+            result = resource.getInputStream().readAllBytes();
+        } catch (IOException e) {
+            LOGGER.error("Failed to read file.");
+        }
+        return result;
     }
 }
