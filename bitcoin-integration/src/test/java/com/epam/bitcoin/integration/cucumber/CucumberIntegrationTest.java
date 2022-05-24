@@ -17,7 +17,7 @@ import io.cucumber.spring.CucumberContextConfiguration;
 @Suite
 @CucumberContextConfiguration
 @ActiveProfiles("wiremock")
-@SelectClasspathResource("com/epam/integration")
+@SelectClasspathResource("cucumber/features")
 @SpringBootTest(classes = BitcoinApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class CucumberIntegrationTest {
 
@@ -27,7 +27,7 @@ public class CucumberIntegrationTest {
     public void init() {
         wireMockServer = new WireMockServer(WireMockConfiguration.wireMockConfig()
                 .port(8089)
-                .withRootDirectory("src/main/resources/wiremock"));
+                .withRootDirectory("src/test/resources/wiremock"));
 
         WireMock.configureFor(8089);
         wireMockServer.start();

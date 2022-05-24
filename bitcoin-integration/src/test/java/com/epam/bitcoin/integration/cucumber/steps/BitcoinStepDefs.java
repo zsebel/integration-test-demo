@@ -22,8 +22,8 @@ import io.cucumber.java.en.When;
 
 public class BitcoinStepDefs {
 
-    @Value("classpath:/response/manual_mocking_respone.json")
-    private Resource mockJsonFile;
+    @Value("classpath:/response/mock_bitcoin_prices.json")
+    private Resource mockBitcoinPricesJsonFile;
 
     @Autowired
     private TestRestTemplate testRestTemplate;
@@ -48,7 +48,7 @@ public class BitcoinStepDefs {
 
     @Then("Bitcoin price should be more than 100k")
     public void bitcoinPriceShouldBeMoreThan100K() {
-        BitcoinResponse expectedResponse = fileReader.read(mockJsonFile, BitcoinResponse.class);
+        BitcoinResponse expectedResponse = fileReader.read(mockBitcoinPricesJsonFile, BitcoinResponse.class);
         Assertions.assertEquals(expectedResponse, actualResponse);
     }
 

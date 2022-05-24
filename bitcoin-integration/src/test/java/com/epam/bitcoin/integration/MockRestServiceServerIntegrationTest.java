@@ -33,10 +33,10 @@ import com.epam.bitcoin.BitcoinResponse;
 public class MockRestServiceServerIntegrationTest {
 
     @Value("classpath:/response/coindesk_mock_response.json")
-    private Resource mockJsonFile;
+    private Resource mockCoinDeskJsonFile;
 
-    @Value("classpath:/response/manual_mocking_respone.json")
-    private Resource bitcoinPricesJsonFile;
+    @Value("classpath:/response/mock_bitcoin_prices.json")
+    private Resource mockBitcoinPricesJsonFile;
 
     @Autowired
     private FileReader fileReader;
@@ -59,14 +59,14 @@ public class MockRestServiceServerIntegrationTest {
         // GIVEN
         MockRestServiceServer mockRestServiceServer = MockRestServiceServer.createServer(restTemplate);
         mockRestServiceServer.expect(MockRestRequestMatchers.requestTo(baseUrl + "/v1/bpi/currentprice.json"))
-                .andRespond(MockRestResponseCreators.withSuccess(mockJsonFile, MediaType.APPLICATION_JSON));
+                .andRespond(MockRestResponseCreators.withSuccess(mockCoinDeskJsonFile, MediaType.APPLICATION_JSON));
 
         // WHEN
         BitcoinResponse actualResponse = this.testRestTemplate.getForObject("http://localhost:" + port + "/api/bitcoin/prices", BitcoinResponse.class);
 
         // THEN
         mockRestServiceServer.verify();
-        BitcoinResponse expectedResponse = fileReader.read(bitcoinPricesJsonFile, BitcoinResponse.class);
+        BitcoinResponse expectedResponse = fileReader.read(mockBitcoinPricesJsonFile, BitcoinResponse.class);
         Assertions.assertEquals(expectedResponse, actualResponse);
     }
 }

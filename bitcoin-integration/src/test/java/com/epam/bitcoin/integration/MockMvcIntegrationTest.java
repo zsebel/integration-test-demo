@@ -44,7 +44,7 @@ public class MockMvcIntegrationTest {
     private MockMvc mockMvc;
 
     @Value("classpath:/response/mock_mvc_response.json")
-    private Resource mockJsonFile;
+    private Resource mockBitcoinPricesJsonFile;
 
     @Autowired
     private FileReader fileReader;
@@ -55,7 +55,7 @@ public class MockMvcIntegrationTest {
     public static void init() {
         wireMockServer = new WireMockServer(WireMockConfiguration.wireMockConfig()
                 .port(8089)
-                .withRootDirectory("src/main/resources/wiremock"));
+                .withRootDirectory("src/test/resources/wiremock"));
 
         WireMock.configureFor(8089);
         wireMockServer.start();
@@ -77,7 +77,7 @@ public class MockMvcIntegrationTest {
         // WHEN
         mockMvc.perform(MockMvcRequestBuilders.get("/api/bitcoin/prices"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().bytes(fileReader.readFileToBytes(mockJsonFile)));
+                .andExpect(MockMvcResultMatchers.content().bytes(fileReader.readFileToBytes(mockBitcoinPricesJsonFile)));
 
         // THEN
     }

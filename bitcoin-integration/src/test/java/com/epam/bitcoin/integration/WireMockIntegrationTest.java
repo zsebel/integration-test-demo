@@ -33,7 +33,7 @@ import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 @SpringBootTest(classes = BitcoinApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class WireMockIntegrationTest {
 
-    @Value("classpath:/response/manual_mocking_respone.json")
+    @Value("classpath:/response/mock_bitcoin_prices.json")
     private Resource mockJsonFile;
 
     @LocalServerPort
@@ -51,7 +51,7 @@ public class WireMockIntegrationTest {
     public static void init() {
         wireMockServer = new WireMockServer(WireMockConfiguration.wireMockConfig()
                 .port(8089)
-                .withRootDirectory("src/main/resources/wiremock"));
+                .withRootDirectory("src/test/resources/wiremock"));
 
         WireMock.configureFor(8089);
         wireMockServer.start();

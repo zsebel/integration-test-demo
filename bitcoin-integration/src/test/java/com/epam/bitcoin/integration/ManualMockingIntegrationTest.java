@@ -25,8 +25,8 @@ import com.epam.bitcoin.BitcoinResponse;
 @ActiveProfiles("integration")
 public class ManualMockingIntegrationTest {
 
-    @Value("classpath:/response/manual_mocking_respone.json")
-    private Resource expectedJsonResponse;
+    @Value("classpath:/response/mock_bitcoin_prices.json")
+    private Resource mockBitcoinPricesJsonFile;
 
     @Autowired
     private FileReader fileReader;
@@ -45,7 +45,7 @@ public class ManualMockingIntegrationTest {
         BitcoinResponse actual = this.testRestTemplate.getForObject("http://localhost:" + port + "/api/bitcoin/prices", BitcoinResponse.class);
 
         // THEN
-        BitcoinResponse expected = fileReader.read(expectedJsonResponse, BitcoinResponse.class);
+        BitcoinResponse expected = fileReader.read(mockBitcoinPricesJsonFile, BitcoinResponse.class);
         Assertions.assertEquals(expected, actual);
     }
 }
