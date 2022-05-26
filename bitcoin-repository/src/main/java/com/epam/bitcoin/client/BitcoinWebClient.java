@@ -5,26 +5,25 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestClientException;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import com.epam.bitcoin.domain.CoinDeskResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class BitcoinRestClient implements BitcoinClient {
+public class BitcoinWebClient implements BitcoinClient {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(BitcoinRestClient.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BitcoinWebClient.class);
     private static final String BITCOIN_PRINCE_INDEX_ENDPOINT = "/v1/bpi/currentprice.json";
 
     private final String baseUrl;
-    private final RestTemplate restTemplate;
+    private final WebClient webClient;
     private final ObjectMapper objectMapper;
 
-    BitcoinRestClient(String baseUrl, RestTemplate restTemplate, ObjectMapper objectMapper) {
+    BitcoinWebClient(String baseUrl, WebClient webClient, ObjectMapper objectMapper) {
         this.baseUrl = baseUrl;
-        this.restTemplate = restTemplate;
+        this.webClient = webClient;
         this.objectMapper = objectMapper;
     }
 
@@ -33,8 +32,12 @@ public class BitcoinRestClient implements BitcoinClient {
         try {
             URI uri = URI.create(baseUrl + BITCOIN_PRINCE_INDEX_ENDPOINT);
             LOGGER.info("==> Sending a GET request to " + uri + " to fetch Bitcoin prices.");
-            ResponseEntity<CoinDeskResponse> responseEntity = restTemplate.getForEntity(uri, CoinDeskResponse.class);
-            coinDeskResponse = responseEntity.getBody();
+            coinDeskResponse = webClient
+                    .get()
+                    .uri(uri)
+                    .retrieve()
+                    .bodyToMono(CoinDeskResponse.class)
+                    .block();
             LOGGER.info("<== The following response was returned: " + objectMapper.writeValueAsString(coinDeskResponse));
         } catch (RestClientException exception) {
             LOGGER.error("The following error occurred during CoinDesk call: " + exception.getMessage());
