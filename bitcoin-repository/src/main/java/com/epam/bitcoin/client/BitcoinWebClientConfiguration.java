@@ -29,7 +29,9 @@ public class BitcoinWebClientConfiguration {
                 .builder()
                 .codecs(clientDefaultCodecsConfigurer -> {
                     clientDefaultCodecsConfigurer.defaultCodecs().jackson2JsonEncoder(new Jackson2JsonEncoder(objectMapper, mediaType));
+                    clientDefaultCodecsConfigurer.customCodecs().register(new Jackson2JsonEncoder(objectMapper, MediaType.APPLICATION_JSON));
                     clientDefaultCodecsConfigurer.defaultCodecs().jackson2JsonDecoder(new Jackson2JsonDecoder(objectMapper, mediaType));
+                    clientDefaultCodecsConfigurer.customCodecs().register(new Jackson2JsonDecoder(objectMapper, MediaType.APPLICATION_JSON));
                 }).build();
     }
 
