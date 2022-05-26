@@ -29,6 +29,7 @@
 		<java.version>11</java.version>
 		<wiremock.version>2.27.2</wiremock.version>
 		<cucumber-bom.version>7.0.0</cucumber-bom.version>
+		<karate.version>1.2.0.RC2</karate.version>
 	</properties>
 
 	<dependencyManagement>
@@ -65,6 +66,18 @@
 				<version>${cucumber-bom.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.intuit.karate</groupId>
+				<artifactId>karate-core</artifactId>
+				<version>${karate.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.intuit.karate</groupId>
+				<artifactId>karate-junit5</artifactId>
+				<version>${karate.version}</version>
+				<scope>test</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
