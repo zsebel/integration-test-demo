@@ -19,9 +19,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Component
 @Primary
 @Profile("integration")
-public class BitcoinRestClientMock implements BitcoinClient {
+public class BitcoinWebClientMock implements BitcoinClient {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(BitcoinRestClientMock.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BitcoinWebClientMock.class);
 
     @Value("classpath:/response/coindesk_mock_response.json")
     private Resource coinDeskMockResponse;
