@@ -38,6 +38,7 @@ The following integration tests are available:
 - MockMvcIntegrationTest
 - MockRestServiceServerIntegrationTest
 - CucumberIntegrationTest
+- KarateIntegrationTest
 
 ### Exercise
 Write a Spring Boot application that integrates `POST /public/v2/users` from https://gorest.co.in/ and exposes this functionality from your application.
