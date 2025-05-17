@@ -6,6 +6,7 @@ import dev.zsebel.bitcoin.integration.base.BaseIntegrationTest;
 import dev.zsebel.bitcoin.integration.client.mock.CoinbaseClientMock;
 import dev.zsebel.bitcoin.integration.model.Currency;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import reactor.core.publisher.Mono;
@@ -21,6 +22,7 @@ import static org.mockito.Mockito.when;
  * to avoid the need of creating manual mocks such as {@link CoinbaseClientMock}.
  */
 @ActiveProfiles("integration")
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public class MockBeanIntegrationTest extends BaseIntegrationTest {
 
     private static final String BITCOIN_CRYPTO_SYMBOL = "BTC";
