@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.epam</groupId>
+        <groupId>dev.zsebel</groupId>
         <artifactId>integration-test-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.epam.bitcoin</groupId>
+    <groupId>dev.zsebel.bitcoin</groupId>
     <artifactId>bitcoin-logging</artifactId>
 
     <properties>

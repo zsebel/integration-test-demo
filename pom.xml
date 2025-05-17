@@ -11,7 +11,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.epam</groupId>
+    <groupId>dev.zsebel</groupId>
     <artifactId>integration-test-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>integration-test-demo</name>
@@ -42,27 +42,27 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.epam.bitcoin</groupId>
+                <groupId>dev.zsebel.bitcoin</groupId>
                 <artifactId>bitcoin-logging</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.epam</groupId>
+                <groupId>dev.zsebel</groupId>
                 <artifactId>bitcoin-repository</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.epam</groupId>
+                <groupId>dev.zsebel</groupId>
                 <artifactId>bitcoin-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.epam</groupId>
+                <groupId>dev.zsebel</groupId>
                 <artifactId>bitcoin-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.epam</groupId>
+                <groupId>dev.zsebel</groupId>
                 <artifactId>bitcoin-application</artifactId>
                 <version>${project.version}</version>
             </dependency>

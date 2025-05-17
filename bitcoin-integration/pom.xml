@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>integration-test-demo</artifactId>
-        <groupId>com.epam</groupId>
+        <groupId>dev.zsebel</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -18,7 +18,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.epam</groupId>
+            <groupId>dev.zsebel</groupId>
             <artifactId>bitcoin-application</artifactId>
         </dependency>
         <dependency>
