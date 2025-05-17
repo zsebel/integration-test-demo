@@ -23,7 +23,6 @@ import org.springframework.test.context.ActiveProfiles;
 )
 @ActiveProfiles("integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
 public class KarateWithMockServerIntegrationTest {
 
     private static final String KARATE_PORT_SYSTEM_PROPERTY_KEY = "karate.port";
