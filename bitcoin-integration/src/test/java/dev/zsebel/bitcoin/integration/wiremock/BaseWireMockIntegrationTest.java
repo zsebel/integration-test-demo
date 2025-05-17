@@ -9,12 +9,14 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.serverError;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public abstract class BaseWireMockIntegrationTest extends BaseIntegrationTest {
     protected static final String COINBASE_RESPONSE_MOCK_JSON_FILE = "coinbase_exchange_rates_response.json";
     protected static final String COINBASE_EXCHANGE_RATES_URL = "/v2/exchange-rates?currency=BTC";
