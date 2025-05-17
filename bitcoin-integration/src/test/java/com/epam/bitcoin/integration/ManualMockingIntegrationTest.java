@@ -1,51 +1,27 @@
 package com.epam.bitcoin.integration;
 
-import org.junit.jupiter.api.Assertions;
+import com.epam.bitcoin.integration.base.BaseIntegrationTest;
+import com.epam.bitcoin.integration.client.mock.CoinbaseClientMock;
+import com.epam.bitcoin.integration.model.Currency;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.core.io.Resource;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.epam.bitcoin.BitcoinApplication;
-import com.epam.bitcoin.BitcoinResponse;
-
 /**
- * Basic integration test using {@link TestRestTemplate} with mocking downstream CoinDesk client.
- *
- * This approach starts:
- *  - Root WebApplicationContext
- *  - Embedded Tomcat server
- *  - Spring DispatcherServer
+ * This setup connects to a running server to perform full, end-to-end HTTP test
+ * but CoinbaseClient is mocked via {@link CoinbaseClientMock}
  */
-@SpringBootTest(classes = BitcoinApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ActiveProfiles("integration")
-public class ManualMockingIntegrationTest {
-
-    @Value("classpath:/response/mock_bitcoin_prices.json")
-    private Resource mockBitcoinPricesJsonFile;
-
-    @Autowired
-    private FileReader fileReader;
-
-    @LocalServerPort
-    private int port;
-
-    @Autowired
-    private TestRestTemplate testRestTemplate;
+@ActiveProfiles("manual")
+public class ManualMockingIntegrationTest extends BaseIntegrationTest {
 
     @Test
-    public void testBitcoinPricesShouldReturnMockedPrices() {
+    public void testBitcoinPriceIndexShouldReturnTheFormattedBitcoinPriceWhenCoinbaseClientIsMockedViaCoinbaseClientMock() {
         // GIVEN
+        var expectedBitcoinPrice = "$95,472.37";
 
-        // WHEN
-        BitcoinResponse actual = this.testRestTemplate.getForObject("http://localhost:" + port + "/api/bitcoin/prices", BitcoinResponse.class);
-
-        // THEN
-        BitcoinResponse expected = fileReader.read(mockBitcoinPricesJsonFile, BitcoinResponse.class);
-        Assertions.assertEquals(expected, actual);
+        // WHEN + THEN
+        bitcoinPriceIndexApiTestClient.getBitcoinPriceIndexIn(Currency.USD)
+            .expectStatus().isOk()
+            .expectBody()
+            .jsonPath(BITCOIN_PRICE_INDEX_JSON_PATH).isEqualTo(expectedBitcoinPrice);
     }
 }

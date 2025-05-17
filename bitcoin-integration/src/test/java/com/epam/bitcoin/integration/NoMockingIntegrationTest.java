@@ -1,41 +1,26 @@
 package com.epam.bitcoin.integration;
 
-import org.junit.jupiter.api.Assertions;
+import com.epam.bitcoin.integration.base.BaseIntegrationTest;
+import com.epam.bitcoin.integration.model.Currency;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.test.web.server.LocalServerPort;
-
-import com.epam.bitcoin.BitcoinApplication;
-import com.epam.bitcoin.BitcoinResponse;
+import org.springframework.test.web.reactive.server.WebTestClient;
 
 /**
- * Basic integration test using {@link TestRestTemplate} without mocking downstream CoinDesk client.
- *
+ * Basic integration test using {@link WebTestClient} without mocking the downstream Coinbase client.
+ * This setup connects to a running server to perform full, end-to-end HTTP test
+ * <p>
  * This approach starts:
- *  - Root WebApplicationContext
- *  - Embedded Tomcat server
- *  - Spring DispatcherServer
+ * - Root WebApplicationContext
+ * - Embedded Tomcat server
+ * - DispatcherServlet
  */
-@SpringBootTest(classes = BitcoinApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class NoMockingIntegrationTest {
-
-    @LocalServerPort
-    private int port;
-
-    @Autowired
-    private TestRestTemplate testRestTemplate;
+public class NoMockingIntegrationTest extends BaseIntegrationTest {
 
     @Test
-    public void testBitcoinPricesShouldReturnUpToDatePricesFromCoinDesk() {
-        // GIVEN
-
-        // WHEN
-        BitcoinResponse actual = this.testRestTemplate.getForObject("http://localhost:" + port + "/api/bitcoin/prices", BitcoinResponse.class);
-
-        // THEN
-        Assertions.assertNotNull(actual);
-        Assertions.assertEquals(3, actual.getPrices().size());
+    public void testBitcoinPriceIndexShouldReturnTheCurrentFormattedBitcoinPriceWhenCoinbaseClientIsNotMocked() {
+        bitcoinPriceIndexApiTestClient.getBitcoinPriceIndexIn(Currency.USD)
+            .expectStatus().isOk()
+            .expectBody()
+            .jsonPath(BITCOIN_PRICE_INDEX_JSON_PATH).isNotEmpty();
     }
 }

@@ -1,0 +1,12 @@
+price-formatter-configuration:
+  languageTagConfigs:
+    - currency: USD
+      languageTag: "en-US"
+    - currency: EUR
+      languageTag: "de-DE"
+    - currency: GBP
+      languageTag: "en-GB"
+    - currency: CHF
+      languageTag: "de-CH"
+    - currency: HUF
+      languageTag: "hu-HU"

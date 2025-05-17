@@ -1,0 +1,30 @@
+server:
+  address: "localhost"
+
+mockServer:
+  port: 8089
+
+wiremock:
+  address: "localhost"
+  port: ${mockServer.port}
+  rootDirectory: "src/test/resources/wiremock"
+
+coinbase:
+  baseUrl: "http://${wiremock.address}:${mockServer.port}"
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      coinbase:
+        registerHealthIndicator: true
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 2
+        waitDurationInOpenState: 2s
+        failureRateThreshold: 50
+  timelimiter:
+    configs:
+      default:
+        timeoutDuration: 1500ms
+        cancelRunningFuture: true
