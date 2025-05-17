@@ -3,7 +3,6 @@ package dev.zsebel.bitcoin.integration;
 import dev.zsebel.bitcoin.integration.base.BaseIntegrationTest;
 import dev.zsebel.bitcoin.integration.model.Currency;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 /**
@@ -15,7 +14,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
  * - Embedded Tomcat server
  * - DispatcherServlet
  */
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public class NoMockingIntegrationTest extends BaseIntegrationTest {
 
     @Test
