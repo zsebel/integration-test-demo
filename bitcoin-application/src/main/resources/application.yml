@@ -1,2 +1,35 @@
-coindesk:
-  baseUrl: "http://api.coindesk.com"
+spring:
+  application:
+    name: integration-test-demo
+  config:
+    import:
+      - classpath:price-formatter-config.yml
+
+coinbase:
+  baseUrl: "https://api.coinbase.com"
+  endpoint: "/v2/exchange-rates"
+  bitcoinSymbol: "BTC"
+  timeout: 2000
+
+retry:
+  instances:
+    coinbase:
+      max-attempts: 2
+      wait-duration: 100ms
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      coinbase:
+        registerHealthIndicator: true
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 2
+        waitDurationInOpenState: 30s
+        failureRateThreshold: 50
+  timelimiter:
+    configs:
+      default:
+        timeoutDuration: 1000ms
+        cancelRunningFuture: true

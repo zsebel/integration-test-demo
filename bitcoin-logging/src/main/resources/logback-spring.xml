@@ -1,0 +1,11 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <!-- Add the turbo filter -->
+    <turboFilter class="dev.zsebel.bitcoin.logging.filters.DebugLevelTurboFilter"/>
+
+    <!-- Spring logs -->
+    <logger name="org.springframework" level="INFO"/>
+
+    <!-- Your application logs -->
+    <logger name="dev.zsebel.bitcoin" level="INFO"/>
+</configuration>
