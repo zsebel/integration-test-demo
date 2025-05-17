@@ -12,7 +12,7 @@ import org.springframework.test.context.ActiveProfiles;
  * but CoinbaseClient is mocked via {@link CoinbaseClientMock}
  */
 @ActiveProfiles("manual")
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class ManualMockingIntegrationTest extends BaseIntegrationTest {
 
     @Test
