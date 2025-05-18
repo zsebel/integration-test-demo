@@ -22,12 +22,12 @@ public class ClasspathFileReader {
     }
 
     public <T> T read(final Resource resource, final Class<T> targetClass) {
-        Object result = null;
+        T result = null;
         try {
             result = objectMapper.readValue(resource.getInputStream(), targetClass);
         } catch (IOException exception) {
             LOGGER.error("Failed to load file.");
         }
-        return (T) result;
+        return result;
     }
 }
