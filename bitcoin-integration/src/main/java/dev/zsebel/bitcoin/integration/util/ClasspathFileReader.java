@@ -8,6 +8,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.MissingResourceException;
 
 @Component
 public class ClasspathFileReader {
@@ -22,12 +24,11 @@ public class ClasspathFileReader {
     }
 
     public <T> T read(final Resource resource, final Class<T> targetClass) {
-        T result = null;
-        try {
-            result = objectMapper.readValue(resource.getInputStream(), targetClass);
-        } catch (IOException exception) {
-            LOGGER.error("Failed to load file.");
+        try (InputStream inputStream = resource.getInputStream()) {
+            return objectMapper.readValue(inputStream, targetClass);
+        } catch (IOException ioException) {
+            LOGGER.error(ioException.getMessage(), ioException);
+            throw new MissingResourceException("Failed to load file from classpath.", resource.getClass().getName(), resource.getFilename());
         }
-        return result;
     }
 }
