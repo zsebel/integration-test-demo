@@ -1,4 +1,4 @@
-package dev.zsebel.bitcoin.integration.advanced;
+package dev.zsebel.bitcoin.integration.resilience;
 
 import dev.zsebel.bitcoin.integration.model.Currency;
 import dev.zsebel.bitcoin.integration.model.Header;
