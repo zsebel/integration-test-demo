@@ -1,4 +1,4 @@
-package dev.zsebel.bitcoin.integration.model;
+package dev.zsebel.bitcoin.integration.support;
 
 public enum Times {
     ONCE(1),

@@ -1,7 +1,5 @@
-package dev.zsebel.bitcoin.integration.client;
+package dev.zsebel.bitcoin.integration.support;
 
-import dev.zsebel.bitcoin.integration.model.Currency;
-import dev.zsebel.bitcoin.integration.model.Header;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 

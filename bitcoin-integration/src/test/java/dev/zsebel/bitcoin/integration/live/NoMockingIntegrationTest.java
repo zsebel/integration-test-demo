@@ -1,7 +1,7 @@
-package dev.zsebel.bitcoin.integration;
+package dev.zsebel.bitcoin.integration.live;
 
-import dev.zsebel.bitcoin.integration.base.BaseIntegrationTest;
-import dev.zsebel.bitcoin.integration.model.Currency;
+import dev.zsebel.bitcoin.integration.BaseIntegrationTest;
+import dev.zsebel.bitcoin.integration.support.Currency;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
