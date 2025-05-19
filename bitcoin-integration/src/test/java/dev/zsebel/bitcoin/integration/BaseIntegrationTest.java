@@ -1,7 +1,7 @@
-package dev.zsebel.bitcoin.integration.base;
+package dev.zsebel.bitcoin.integration;
 
 import dev.zsebel.bitcoin.BitcoinApplication;
-import dev.zsebel.bitcoin.integration.client.BitcoinPriceIndexApiTestClient;
+import dev.zsebel.bitcoin.integration.support.BitcoinPriceIndexApiTestClient;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;

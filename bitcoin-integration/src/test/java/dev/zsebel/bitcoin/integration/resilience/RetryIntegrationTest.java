@@ -1,7 +1,7 @@
 package dev.zsebel.bitcoin.integration.resilience;
 
-import dev.zsebel.bitcoin.integration.model.Currency;
-import dev.zsebel.bitcoin.integration.model.Header;
+import dev.zsebel.bitcoin.integration.support.Currency;
+import dev.zsebel.bitcoin.integration.support.Header;
 import dev.zsebel.bitcoin.integration.wiremock.BaseWireMockIntegrationTest;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;

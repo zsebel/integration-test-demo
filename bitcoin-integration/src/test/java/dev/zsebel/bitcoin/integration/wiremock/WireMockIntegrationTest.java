@@ -1,6 +1,6 @@
 package dev.zsebel.bitcoin.integration.wiremock;
 
-import dev.zsebel.bitcoin.integration.model.Currency;
+import dev.zsebel.bitcoin.integration.support.Currency;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.ActiveProfiles;

@@ -1,8 +1,8 @@
 package dev.zsebel.bitcoin.integration.cucumber.steps;
 
-import dev.zsebel.bitcoin.integration.client.BitcoinPriceIndexApiTestClient;
-import dev.zsebel.bitcoin.integration.model.Currency;
-import dev.zsebel.bitcoin.integration.model.Header;
+import dev.zsebel.bitcoin.integration.support.BitcoinPriceIndexApiTestClient;
+import dev.zsebel.bitcoin.integration.support.Currency;
+import dev.zsebel.bitcoin.integration.support.Header;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import io.cucumber.java.Before;
 import io.cucumber.java.ParameterType;

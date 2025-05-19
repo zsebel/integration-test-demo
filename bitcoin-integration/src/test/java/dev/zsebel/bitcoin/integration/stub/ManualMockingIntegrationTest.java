@@ -1,9 +1,11 @@
-package dev.zsebel.bitcoin.integration;
+package dev.zsebel.bitcoin.integration.stub;
 
-import dev.zsebel.bitcoin.integration.base.BaseIntegrationTest;
-import dev.zsebel.bitcoin.integration.client.CoinbaseClientStub;
-import dev.zsebel.bitcoin.integration.model.Currency;
+import dev.zsebel.bitcoin.integration.BaseIntegrationTest;
+import dev.zsebel.bitcoin.integration.stub.config.CoinbaseClientStubConfiguration;
+import dev.zsebel.bitcoin.integration.stub.client.CoinbaseClientStub;
+import dev.zsebel.bitcoin.integration.support.Currency;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 
 /**
@@ -11,6 +13,7 @@ import org.springframework.test.context.ActiveProfiles;
  * but CoinbaseClient is mocked via {@link CoinbaseClientStub}
  */
 @ActiveProfiles("manual")
+@Import(CoinbaseClientStubConfiguration.class)
 public class ManualMockingIntegrationTest extends BaseIntegrationTest {
 
     @Test

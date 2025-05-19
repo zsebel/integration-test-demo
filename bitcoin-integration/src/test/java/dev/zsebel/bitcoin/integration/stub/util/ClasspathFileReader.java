@@ -1,24 +1,20 @@
-package dev.zsebel.bitcoin.integration.util;
+package dev.zsebel.bitcoin.integration.stub.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.MissingResourceException;
 
-@Component
 public class ClasspathFileReader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ClasspathFileReader.class);
 
     private final ObjectMapper objectMapper;
 
-    @Autowired
     public ClasspathFileReader(final ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
     }
