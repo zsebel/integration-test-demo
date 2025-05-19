@@ -33,7 +33,7 @@ http://localhost:8080/api/v2/bitcoin?currency=USD
 ### Integration tests
 The following integration tests are available:
 - NoMockingIntegrationTest
-- ManualMockingIntegrationTest
+- StubbedClientIntegrationTest
 - MockBeanIntegrationTest
 - WireMockIntegrationTest
 - CucumberIntegrationTestRunner

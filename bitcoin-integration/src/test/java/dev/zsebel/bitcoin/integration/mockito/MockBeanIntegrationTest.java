@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 /**
  * This setup connects to a running server to perform full, end-to-end HTTP test
  * but CoinbaseClient bean is overridden in the ApplicationContext by {@link MockitoBean} (previously @MockBean)
- * to avoid the need of creating manual mocks such as {@link CoinbaseClientStub}.
+ * to avoid the need of creating stubs manually such as {@link CoinbaseClientStub}.
  */
 @ActiveProfiles("integration")
 public class MockBeanIntegrationTest extends BaseIntegrationTest {

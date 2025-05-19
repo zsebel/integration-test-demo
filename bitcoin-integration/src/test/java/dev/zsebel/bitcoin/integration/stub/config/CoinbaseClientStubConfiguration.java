@@ -23,7 +23,7 @@ public class CoinbaseClientStubConfiguration {
 
     @Bean
     @Primary
-    @Profile("manual")
+    @Profile("stub")
     public CoinbaseClientStub coinbaseClientStub(final ClasspathFileReader classpathFileReader) {
         return new CoinbaseClientStub(classpathFileReader, coinbaseResponseJsonFile);
     }

@@ -10,11 +10,11 @@ import org.springframework.test.context.ActiveProfiles;
 
 /**
  * This setup connects to a running server to perform full, end-to-end HTTP test
- * but CoinbaseClient is mocked via {@link CoinbaseClientStub}
+ * but CoinbaseClient is replaced by {@link CoinbaseClientStub}
  */
-@ActiveProfiles("manual")
+@ActiveProfiles("stub")
 @Import(CoinbaseClientStubConfiguration.class)
-public class ManualMockingIntegrationTest extends BaseIntegrationTest {
+public class StubbedClientIntegrationTest extends BaseIntegrationTest {
 
     @Test
     public void testBitcoinPriceIndexShouldReturnTheFormattedBitcoinPriceWhenCoinbaseClientIsMockedViaCoinbaseClientMock() {
