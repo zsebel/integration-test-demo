@@ -1,4 +1,4 @@
-package dev.zsebel.bitcoin.integration.client.mock;
+package dev.zsebel.bitcoin.integration.client;
 
 import dev.zsebel.bitcoin.client.ExchangeRatesClient;
 import dev.zsebel.bitcoin.client.model.CoinbaseResponse;
@@ -16,15 +16,15 @@ import reactor.core.publisher.Mono;
 @Component
 @Primary
 @Profile("manual")
-public class CoinbaseClientMock implements ExchangeRatesClient {
+public class CoinbaseClientStub implements ExchangeRatesClient {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CoinbaseClientMock.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CoinbaseClientStub.class);
 
     private final ClasspathFileReader classpathFileReader;
     private final Resource coinbaseResponseJsonFile;
 
     @Autowired
-    public CoinbaseClientMock(
+    public CoinbaseClientStub(
         final ClasspathFileReader classpathFileReader,
         @Value("classpath:/response/coinbase/coinbase_exchange_rates_response.json")final Resource coinbaseResponseJsonFile
     ) {

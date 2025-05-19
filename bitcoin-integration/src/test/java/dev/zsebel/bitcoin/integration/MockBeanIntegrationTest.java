@@ -3,7 +3,7 @@ package dev.zsebel.bitcoin.integration;
 import dev.zsebel.bitcoin.client.ExchangeRatesClient;
 import dev.zsebel.bitcoin.client.model.CoinbaseResponse;
 import dev.zsebel.bitcoin.integration.base.BaseIntegrationTest;
-import dev.zsebel.bitcoin.integration.client.mock.CoinbaseClientMock;
+import dev.zsebel.bitcoin.integration.client.CoinbaseClientStub;
 import dev.zsebel.bitcoin.integration.model.Currency;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.ActiveProfiles;
@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 /**
  * This setup connects to a running server to perform full, end-to-end HTTP test
  * but CoinbaseClient is mocked using {@link MockitoBean}
- * to avoid the need of creating manual mocks such as {@link CoinbaseClientMock}.
+ * to avoid the need of creating manual mocks such as {@link CoinbaseClientStub}.
  */
 @ActiveProfiles("integration")
 public class MockBeanIntegrationTest extends BaseIntegrationTest {

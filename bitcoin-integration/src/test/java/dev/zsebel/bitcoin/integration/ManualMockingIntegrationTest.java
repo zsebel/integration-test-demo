@@ -1,14 +1,14 @@
 package dev.zsebel.bitcoin.integration;
 
 import dev.zsebel.bitcoin.integration.base.BaseIntegrationTest;
-import dev.zsebel.bitcoin.integration.client.mock.CoinbaseClientMock;
+import dev.zsebel.bitcoin.integration.client.CoinbaseClientStub;
 import dev.zsebel.bitcoin.integration.model.Currency;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.ActiveProfiles;
 
 /**
  * This setup connects to a running server to perform full, end-to-end HTTP test
- * but CoinbaseClient is mocked via {@link CoinbaseClientMock}
+ * but CoinbaseClient is mocked via {@link CoinbaseClientStub}
  */
 @ActiveProfiles("manual")
 public class ManualMockingIntegrationTest extends BaseIntegrationTest {
