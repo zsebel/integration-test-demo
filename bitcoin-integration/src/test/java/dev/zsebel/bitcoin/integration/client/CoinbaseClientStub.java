@@ -13,12 +13,15 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
+import java.time.Duration;
+
 @Component
 @Primary
 @Profile("manual")
 public class CoinbaseClientStub implements ExchangeRatesClient {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CoinbaseClientStub.class);
+    private static final long SIMULATED_LATENCY_IN_MILLISECONDS = 10L;
 
     private final ClasspathFileReader classpathFileReader;
     private final Resource coinbaseResponseJsonFile;
@@ -26,7 +29,7 @@ public class CoinbaseClientStub implements ExchangeRatesClient {
     @Autowired
     public CoinbaseClientStub(
         final ClasspathFileReader classpathFileReader,
-        @Value("classpath:/response/coinbase/coinbase_exchange_rates_response.json")final Resource coinbaseResponseJsonFile
+        @Value("classpath:/response/coinbase/coinbase_exchange_rates_response.json") final Resource coinbaseResponseJsonFile
     ) {
         this.classpathFileReader = classpathFileReader;
         this.coinbaseResponseJsonFile = coinbaseResponseJsonFile;
@@ -37,7 +40,7 @@ public class CoinbaseClientStub implements ExchangeRatesClient {
         LOGGER.info("Reading Coinbase response from {} file.", coinbaseResponseJsonFile.getFilename());
         CoinbaseResponse coinbaseResponse = classpathFileReader.read(coinbaseResponseJsonFile, CoinbaseResponse.class);
         LOGGER.info("Successfully read Coinbase response.");
-        return Mono.just(coinbaseResponse);
+        return Mono.delay(Duration.ofMillis(SIMULATED_LATENCY_IN_MILLISECONDS)).thenReturn(coinbaseResponse);
     }
 }
 
