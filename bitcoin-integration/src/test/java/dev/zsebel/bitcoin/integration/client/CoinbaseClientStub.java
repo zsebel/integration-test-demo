@@ -15,6 +15,7 @@ import reactor.core.publisher.Mono;
 
 import java.time.Duration;
 
+// TODO: add test configuration
 @Component
 @Primary
 @Profile("manual")
