@@ -14,10 +14,10 @@ import org.springframework.test.web.reactive.server.WebTestClient;
  * - Embedded Tomcat server
  * - DispatcherServlet
  */
-public class NoMockingIntegrationTest extends BaseIntegrationTest {
+class NoMockingIntegrationTest extends BaseIntegrationTest {
 
     @Test
-    public void testBitcoinPriceIndexShouldReturnTheCurrentFormattedBitcoinPriceWhenCoinbaseClientIsNotMocked() {
+    void testBitcoinPriceIndexShouldReturnTheCurrentFormattedBitcoinPriceWhenCoinbaseClientIsNotMocked() {
         bitcoinPriceIndexApiTestClient.getBitcoinPriceIndexIn(Currency.USD)
             .expectStatus().isOk()
             .expectBody()

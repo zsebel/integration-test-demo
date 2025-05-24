@@ -20,7 +20,7 @@ import org.springframework.test.context.ActiveProfiles;
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
 @ActiveProfiles("integration")
-public class KarateWithWireMockIntegrationTest extends BaseWireMockIntegrationTest {
+class KarateWithWireMockIntegrationTest extends BaseWireMockIntegrationTest {
 
     private static final String KARATE_PORT_SYSTEM_PROPERTY_KEY = "karate.port";
 
@@ -28,7 +28,7 @@ public class KarateWithWireMockIntegrationTest extends BaseWireMockIntegrationTe
     private int port;
 
     @BeforeEach
-    public void registerMockBehaviour() {
+    void registerMockBehaviour() {
         setupCoinbaseExchangeRatesSuccessStubWith(COINBASE_RESPONSE_MOCK_JSON_FILE);
     }
 

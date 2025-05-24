@@ -31,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * and CircuitBreaker states are tested in various scenarios.
  */
 @ActiveProfiles("integration")
-public class CircuitBreakerIntegrationTest extends BaseWireMockIntegrationTest {
+class CircuitBreakerIntegrationTest extends BaseWireMockIntegrationTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CircuitBreakerIntegrationTest.class);
     private static final String CIRCUIT_BREAKER_STATE = "CircuitBreaker State";
@@ -56,7 +56,7 @@ public class CircuitBreakerIntegrationTest extends BaseWireMockIntegrationTest {
     private CircuitBreakerRegistry circuitBreakerRegistry;
 
     @BeforeAll
-    public void beforeAll() {
+    void beforeAll() {
         circuitBreaker = circuitBreakerRegistry.circuitBreaker("coinbase");
     }
 
@@ -66,7 +66,7 @@ public class CircuitBreakerIntegrationTest extends BaseWireMockIntegrationTest {
     }
 
     @Test
-    public void testCoinbaseCircuitBreakerShouldRemainInClosedStateWhenTheNumberOfErrorsAreLessThanTheMinimumNumberOfCalls() {
+    void testCoinbaseCircuitBreakerShouldRemainInClosedStateWhenTheNumberOfErrorsAreLessThanTheMinimumNumberOfCalls() {
         // GIVEN
         setupCoinbaseExchangeRatesServerErrorStub();
 
@@ -83,7 +83,7 @@ public class CircuitBreakerIntegrationTest extends BaseWireMockIntegrationTest {
     }
 
     @Test
-    public void testCoinbaseCircuitBreakerShouldTransitionToOpenStateWhenTheNumberOfErrorsAreMoreThanTheMinimumNumberOfCalls() {
+    void testCoinbaseCircuitBreakerShouldTransitionToOpenStateWhenTheNumberOfErrorsAreMoreThanTheMinimumNumberOfCalls() {
         // GIVEN
         setupCoinbaseExchangeRatesServerErrorStub();
 
@@ -100,7 +100,7 @@ public class CircuitBreakerIntegrationTest extends BaseWireMockIntegrationTest {
     }
 
     @Test
-    public void testCoinbaseCircuitBreakerShouldNotPermitCallsWhenTheNumberOfErrorsExceedsTheThreshold() {
+    void testCoinbaseCircuitBreakerShouldNotPermitCallsWhenTheNumberOfErrorsExceedsTheThreshold() {
         // GIVEN
         setupCoinbaseExchangeRatesServerErrorStub();
 
@@ -117,7 +117,7 @@ public class CircuitBreakerIntegrationTest extends BaseWireMockIntegrationTest {
     }
 
     @Test
-    public void testCoinbaseCircuitBreakerShouldTransitionToHalfOpenStateWhenWaitDurationInOpenStateIsElapsed() {
+    void testCoinbaseCircuitBreakerShouldTransitionToHalfOpenStateWhenWaitDurationInOpenStateIsElapsed() {
         // GIVEN
         setupCoinbaseExchangeRatesServerErrorStubFor(CIRCUIT_BREAKER_STATE, STATE_CLOSED);
         setupCoinbaseExchangeRatesSuccessStubFor(CIRCUIT_BREAKER_STATE, STATE_OPEN);
@@ -146,7 +146,7 @@ public class CircuitBreakerIntegrationTest extends BaseWireMockIntegrationTest {
     }
 
     @Test
-    public void testAllCoinbaseCircuitBreakerStates() {
+    void testAllCoinbaseCircuitBreakerStates() {
         // GIVEN
         setupCoinbaseExchangeRatesServerErrorStubFor(CIRCUIT_BREAKER_STATE, STATE_CLOSED);
         setupCoinbaseExchangeRatesSuccessStubFor(CIRCUIT_BREAKER_STATE, STATE_OPEN);

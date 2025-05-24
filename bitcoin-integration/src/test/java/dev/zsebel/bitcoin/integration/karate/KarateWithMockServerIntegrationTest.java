@@ -41,7 +41,7 @@ public class KarateWithMockServerIntegrationTest {
     }
 
     @AfterAll
-    public void afterAll() {
+    void afterAll() {
         if (mockServer != null) {
             mockServer.stop();
         }

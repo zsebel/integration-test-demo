@@ -11,10 +11,10 @@ import org.springframework.test.context.ActiveProfiles;
  * instead of the actual Coinbase endpoint.
  */
 @ActiveProfiles("integration")
-public class WireMockIntegrationTest extends BaseWireMockIntegrationTest {
+class WireMockIntegrationTest extends BaseWireMockIntegrationTest {
 
     @Test
-    public void testBitcoinPricesShouldReturnTheFormattedBitcoinPriceIndexWhenCoinbaseRequestsAreSentToWireMockServer() {
+    void testBitcoinPricesShouldReturnTheFormattedBitcoinPriceIndexWhenCoinbaseRequestsAreSentToWireMockServer() {
         // GIVEN
         var expectedBitcoinPrice = "$95,472.37";
 
