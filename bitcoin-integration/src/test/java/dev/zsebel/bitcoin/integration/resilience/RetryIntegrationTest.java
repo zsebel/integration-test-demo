@@ -23,14 +23,14 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
  * but in this scenario simulates server errors for the first two attempts.
  */
 @ActiveProfiles("integration")
-public class RetryIntegrationTest extends BaseWireMockIntegrationTest {
+class RetryIntegrationTest extends BaseWireMockIntegrationTest {
 
     private static final String RETRY_SCENARIO = "Retry scenario";
     private static final String STATE_FIRST_RETRY = "First retry attempt";
     private static final String STATE_SECOND_RETRY = "Second retry attempt";
 
     @Test
-    public void testRetryIntegrationShouldReturnFormattedBitcoinPriceWhenCoinbaseCallIsSuccessfulAfterTwoFailedRetries() {
+    void testRetryIntegrationShouldReturnFormattedBitcoinPriceWhenCoinbaseCallIsSuccessfulAfterTwoFailedRetries() {
         // GIVEN
         stubFor(WireMock.get(urlEqualTo(COINBASE_EXCHANGE_RATES_URL))
             .inScenario(RETRY_SCENARIO)

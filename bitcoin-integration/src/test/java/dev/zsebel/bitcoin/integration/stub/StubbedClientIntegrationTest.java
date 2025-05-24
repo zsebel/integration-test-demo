@@ -14,10 +14,10 @@ import org.springframework.test.context.ActiveProfiles;
  */
 @ActiveProfiles("stub")
 @Import(CoinbaseClientStubConfiguration.class)
-public class StubbedClientIntegrationTest extends BaseIntegrationTest {
+class StubbedClientIntegrationTest extends BaseIntegrationTest {
 
     @Test
-    public void testBitcoinPriceIndexShouldReturnTheFormattedBitcoinPriceWhenCoinbaseClientIsMockedViaCoinbaseClientMock() {
+    void testBitcoinPriceIndexShouldReturnTheFormattedBitcoinPriceWhenCoinbaseClientIsMockedViaCoinbaseClientMock() {
         // GIVEN
         var expectedBitcoinPrice = "$95,472.37";
 

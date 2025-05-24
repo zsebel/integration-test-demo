@@ -23,13 +23,13 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
  * but in this scenario Coinbase client times out.
  */
 @ActiveProfiles("integration")
-public class CoinbaseClientTimeoutIntegrationTest extends BaseWireMockIntegrationTest {
+class CoinbaseClientTimeoutIntegrationTest extends BaseWireMockIntegrationTest {
 
     @Value("${resilience4j.timelimiter.configs.default.timeoutDuration}")
     private Duration timeoutInMillis;
 
     @Test
-    public void testCoinbaseClientTimeoutShouldReturnErrorResponseWhenCoinbaseDownstreamCallTakesLongerThanTheTimeoutSetting() {
+    void testCoinbaseClientTimeoutShouldReturnErrorResponseWhenCoinbaseDownstreamCallTakesLongerThanTheTimeoutSetting() {
         // GIVEN
         stubFor(WireMock.get(urlEqualTo(COINBASE_EXCHANGE_RATES_URL))
             .willReturn(aResponse()

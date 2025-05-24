@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
  * to avoid the need of creating stubs manually such as {@link CoinbaseClientStub}.
  */
 @ActiveProfiles("integration")
-public class MockBeanIntegrationTest extends BaseIntegrationTest {
+class MockBeanIntegrationTest extends BaseIntegrationTest {
 
     private static final String BITCOIN_CRYPTO_SYMBOL = "BTC";
 
@@ -29,7 +29,7 @@ public class MockBeanIntegrationTest extends BaseIntegrationTest {
     private ExchangeRatesClient coinbaseExchangeRatesClientWrapper;
 
     @Test
-    public void testBitcoinPriceIndexShouldReturnTheFormattedBitcoinPriceWhenCoinbaseClientMockitoBeanIsUsed() {
+    void testBitcoinPriceIndexShouldReturnTheFormattedBitcoinPriceWhenCoinbaseClientMockitoBeanIsUsed() {
         // GIVEN
         var bitcoinRawPrice = "12345.67";
         var bitcoinFormattedPrice = "$12,345.67";
