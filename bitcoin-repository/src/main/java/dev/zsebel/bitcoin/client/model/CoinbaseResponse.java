@@ -7,6 +7,5 @@ public record CoinbaseResponse(Data data) {
     public record Data(
             String currency,
             Map<String, String> rates
-    ) { }
-
+    ) {}
 }

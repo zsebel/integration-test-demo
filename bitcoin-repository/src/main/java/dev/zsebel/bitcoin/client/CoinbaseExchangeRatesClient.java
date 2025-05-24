@@ -9,7 +9,7 @@ import dev.zsebel.bitcoin.client.model.CoinbaseResponse;
 
 /**
  * A WebClient implementation to fetch exchange rates from Coinbase for Bitcoin
- * via <a href="http://api.coinbase.com/v2/exchange-rates?currency=BTC">Coinbase Exchange Rates API</a>
+ * via <a href="https://api.coinbase.com/v2/exchange-rates?currency=BTC">Coinbase Exchange Rates API</a>.
  */
 public class CoinbaseExchangeRatesClient implements ExchangeRatesClient {
 

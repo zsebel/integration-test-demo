@@ -6,5 +6,6 @@ public sealed interface ApiError permits BusinessError, InternalError, Validatio
 
     @JsonProperty("type")
     ErrorType type();
+
     String message();
 }

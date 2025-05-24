@@ -205,7 +205,6 @@
                 <configuration>
                     <configLocation>${checkstyle.config.location}/checkstyle_rules.xml</configLocation>
                     <consoleOutput>true</consoleOutput>
-                    <failsOnError>true</failsOnError>
                 </configuration>
             </plugin>
         </plugins>

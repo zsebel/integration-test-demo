@@ -72,8 +72,8 @@ public class CoinbaseClientConfiguration {
     }
 
     @Bean
-    public ReactiveCircuitBreaker coinbaseReactiveCircuitBreaker(final ReactiveResilience4JCircuitBreakerFactory reactiveResilience4JCircuitBreakerFactory) {
-        return reactiveResilience4JCircuitBreakerFactory.create(COINBASE_INSTANCE_IDENTIFIER);
+    public ReactiveCircuitBreaker coinbaseReactiveCircuitBreaker(final ReactiveResilience4JCircuitBreakerFactory reactiveCircuitBreakerFactory) {
+        return reactiveCircuitBreakerFactory.create(COINBASE_INSTANCE_IDENTIFIER);
     }
 
     @Bean
