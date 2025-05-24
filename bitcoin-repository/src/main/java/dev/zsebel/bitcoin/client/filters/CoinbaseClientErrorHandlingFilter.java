@@ -1,13 +1,18 @@
 package dev.zsebel.bitcoin.client.filters;
 
-import dev.zsebel.bitcoin.client.exception.CoinbaseClientException;
-import dev.zsebel.bitcoin.client.exception.CoinbaseClientInternalServerError;
-import dev.zsebel.bitcoin.client.exception.CoinbaseClientTimeoutException;
 import io.netty.channel.ConnectTimeoutException;
 import io.netty.handler.timeout.ReadTimeoutException;
 import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.client.*;
+import org.springframework.web.reactive.function.client.ClientRequest;
+import org.springframework.web.reactive.function.client.ClientResponse;
+import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
+import org.springframework.web.reactive.function.client.ExchangeFunction;
+import org.springframework.web.reactive.function.client.WebClientRequestException;
 import reactor.core.publisher.Mono;
+
+import dev.zsebel.bitcoin.client.exception.CoinbaseClientException;
+import dev.zsebel.bitcoin.client.exception.CoinbaseClientInternalServerError;
+import dev.zsebel.bitcoin.client.exception.CoinbaseClientTimeoutException;
 
 @Component
 public class CoinbaseClientErrorHandlingFilter implements ExchangeFilterFunction {

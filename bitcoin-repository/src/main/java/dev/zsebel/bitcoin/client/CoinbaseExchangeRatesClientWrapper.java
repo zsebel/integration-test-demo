@@ -1,8 +1,7 @@
 package dev.zsebel.bitcoin.client;
 
-import dev.zsebel.bitcoin.client.exception.CoinbaseClientRetryExhaustedException;
-import dev.zsebel.bitcoin.client.exception.CoinbaseClientTimeoutException;
-import dev.zsebel.bitcoin.client.model.CoinbaseResponse;
+import java.util.concurrent.TimeoutException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,9 @@ import reactor.core.publisher.Mono;
 import reactor.util.retry.Retry;
 import reactor.util.retry.RetryBackoffSpec;
 
-import java.util.concurrent.TimeoutException;
+import dev.zsebel.bitcoin.client.exception.CoinbaseClientRetryExhaustedException;
+import dev.zsebel.bitcoin.client.exception.CoinbaseClientTimeoutException;
+import dev.zsebel.bitcoin.client.model.CoinbaseResponse;
 
 @Component
 public class CoinbaseExchangeRatesClientWrapper implements ExchangeRatesClient {

@@ -1,9 +1,10 @@
 package dev.zsebel.bitcoin.logging.config;
 
-import dev.zsebel.bitcoin.logging.interceptor.LoggingServerInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import dev.zsebel.bitcoin.logging.interceptor.LoggingServerInterceptor;
 
 @Configuration
 public class LoggingServerInterceptorConfiguration implements WebMvcConfigurer {

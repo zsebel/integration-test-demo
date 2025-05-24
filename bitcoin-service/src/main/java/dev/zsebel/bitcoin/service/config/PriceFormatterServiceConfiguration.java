@@ -1,13 +1,14 @@
 package dev.zsebel.bitcoin.service.config;
 
-import dev.zsebel.bitcoin.service.PriceFormatterService;
-import dev.zsebel.bitcoin.service.config.PriceFormatterConfig.LanguageTagConfig;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
 import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import dev.zsebel.bitcoin.service.PriceFormatterService;
+import dev.zsebel.bitcoin.service.config.PriceFormatterConfig.LanguageTagConfig;
 
 @Configuration
 public class PriceFormatterServiceConfiguration {

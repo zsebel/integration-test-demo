@@ -8,7 +8,7 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 @ConfigurationPropertiesScan
 public class BitcoinApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BitcoinApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BitcoinApplication.class, args);
+    }
 }

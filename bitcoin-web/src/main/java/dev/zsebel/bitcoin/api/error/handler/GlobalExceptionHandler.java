@@ -1,13 +1,7 @@
 package dev.zsebel.bitcoin.api.error.handler;
 
-import dev.zsebel.bitcoin.api.error.ApiError;
-import dev.zsebel.bitcoin.api.error.InternalError;
-import dev.zsebel.bitcoin.api.error.ValidationError;
-import dev.zsebel.bitcoin.api.model.ApiErrorResponse;
-import dev.zsebel.bitcoin.client.exception.CoinbaseClientException;
-import dev.zsebel.bitcoin.client.exception.CoinbaseClientInternalServerError;
-import dev.zsebel.bitcoin.client.exception.CoinbaseClientRetryExhaustedException;
-import dev.zsebel.bitcoin.client.exception.CoinbaseClientTimeoutException;
+import java.util.List;
+
 import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolation;
@@ -20,7 +14,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import java.util.List;
+import dev.zsebel.bitcoin.api.error.ApiError;
+import dev.zsebel.bitcoin.api.error.InternalError;
+import dev.zsebel.bitcoin.api.error.ValidationError;
+import dev.zsebel.bitcoin.api.model.ApiErrorResponse;
+import dev.zsebel.bitcoin.client.exception.CoinbaseClientException;
+import dev.zsebel.bitcoin.client.exception.CoinbaseClientInternalServerError;
+import dev.zsebel.bitcoin.client.exception.CoinbaseClientRetryExhaustedException;
+import dev.zsebel.bitcoin.client.exception.CoinbaseClientTimeoutException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {

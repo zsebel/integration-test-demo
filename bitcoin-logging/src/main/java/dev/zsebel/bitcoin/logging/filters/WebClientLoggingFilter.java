@@ -1,6 +1,5 @@
 package dev.zsebel.bitcoin.logging.filters;
 
-import dev.zsebel.bitcoin.logging.model.LoggingConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -10,6 +9,8 @@ import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import reactor.core.publisher.Mono;
 import reactor.util.context.ContextView;
+
+import dev.zsebel.bitcoin.logging.model.LoggingConstants;
 
 @Component
 public class WebClientLoggingFilter {
