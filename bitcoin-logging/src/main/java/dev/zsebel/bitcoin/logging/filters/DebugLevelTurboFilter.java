@@ -4,9 +4,10 @@ import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.turbo.TurboFilter;
 import ch.qos.logback.core.spi.FilterReply;
-import dev.zsebel.bitcoin.logging.model.LoggingConstants;
 import org.slf4j.MDC;
 import org.slf4j.Marker;
+
+import dev.zsebel.bitcoin.logging.model.LoggingConstants;
 
 public class DebugLevelTurboFilter extends TurboFilter {
 

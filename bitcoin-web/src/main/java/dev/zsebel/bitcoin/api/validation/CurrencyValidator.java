@@ -1,13 +1,14 @@
 package dev.zsebel.bitcoin.api.validation;
 
-import dev.zsebel.bitcoin.api.validation.annotation.SupportedCurrency;
+import java.util.Comparator;
+import java.util.List;
+
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 
-import java.util.Comparator;
-import java.util.List;
+import dev.zsebel.bitcoin.api.validation.annotation.SupportedCurrency;
 
 public class CurrencyValidator implements ConstraintValidator<SupportedCurrency, String> {
 

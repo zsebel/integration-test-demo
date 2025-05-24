@@ -1,9 +1,10 @@
 package dev.zsebel.bitcoin.service;
 
-import dev.zsebel.bitcoin.client.ExchangeRatesClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
+
+import dev.zsebel.bitcoin.client.ExchangeRatesClient;
 
 @Service
 public class BitcoinPriceIndexService {
@@ -19,7 +20,7 @@ public class BitcoinPriceIndexService {
 
     public Mono<String> fetchBitcoinPriceIndex(final String currency) {
         return coinbaseExchangeRatesClientWrapper.fetchExchangeRates()
-                .map(coinbaseResponse -> coinbaseResponse.data().rates().get(currency))
-                .map(bitcoinPriceIndex -> priceFormatterService.format(bitcoinPriceIndex, currency));
+            .map(coinbaseResponse -> coinbaseResponse.data().rates().get(currency))
+            .map(bitcoinPriceIndex -> priceFormatterService.format(bitcoinPriceIndex, currency));
     }
 }

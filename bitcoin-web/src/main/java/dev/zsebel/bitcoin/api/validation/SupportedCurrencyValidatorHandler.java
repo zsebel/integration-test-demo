@@ -1,13 +1,13 @@
 package dev.zsebel.bitcoin.api.validation;
 
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+
 import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
 
 @Component
 @Order(3)

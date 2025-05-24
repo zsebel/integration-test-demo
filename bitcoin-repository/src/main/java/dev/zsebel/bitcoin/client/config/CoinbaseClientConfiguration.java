@@ -1,10 +1,7 @@
 package dev.zsebel.bitcoin.client.config;
 
-import dev.zsebel.bitcoin.client.CoinbaseExchangeRatesClient;
-import dev.zsebel.bitcoin.client.config.RetryConfiguration.RetryProperties;
-import dev.zsebel.bitcoin.client.factory.ReactiveContextFactory;
-import dev.zsebel.bitcoin.client.filters.CoinbaseClientErrorHandlingFilter;
-import dev.zsebel.bitcoin.logging.filters.WebClientLoggingFilter;
+import java.time.Duration;
+
 import io.netty.channel.ChannelOption;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.circuitbreaker.resilience4j.ReactiveResilience4JCircuitBreakerFactory;
@@ -17,7 +14,11 @@ import reactor.netty.http.client.HttpClient;
 import reactor.util.retry.Retry;
 import reactor.util.retry.RetryBackoffSpec;
 
-import java.time.Duration;
+import dev.zsebel.bitcoin.client.CoinbaseExchangeRatesClient;
+import dev.zsebel.bitcoin.client.config.RetryConfiguration.RetryProperties;
+import dev.zsebel.bitcoin.client.factory.ReactiveContextFactory;
+import dev.zsebel.bitcoin.client.filters.CoinbaseClientErrorHandlingFilter;
+import dev.zsebel.bitcoin.logging.filters.WebClientLoggingFilter;
 
 
 @Configuration

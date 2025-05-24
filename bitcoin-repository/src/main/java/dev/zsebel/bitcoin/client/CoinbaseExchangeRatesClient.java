@@ -1,10 +1,11 @@
 package dev.zsebel.bitcoin.client;
 
-import dev.zsebel.bitcoin.client.factory.ReactiveContextFactory;
-import dev.zsebel.bitcoin.client.model.CoinbaseResponse;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
+
+import dev.zsebel.bitcoin.client.factory.ReactiveContextFactory;
+import dev.zsebel.bitcoin.client.model.CoinbaseResponse;
 
 /**
  * A WebClient implementation to fetch exchange rates from Coinbase for Bitcoin

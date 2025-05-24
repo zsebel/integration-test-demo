@@ -1,9 +1,10 @@
 package dev.zsebel.bitcoin.client.factory;
 
-import dev.zsebel.bitcoin.logging.model.LoggingConstants;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
 import reactor.util.context.Context;
+
+import dev.zsebel.bitcoin.logging.model.LoggingConstants;
 
 @Component
 public class ReactiveContextFactory {
