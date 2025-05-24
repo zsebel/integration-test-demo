@@ -19,7 +19,8 @@ public class LoggingServerInterceptor implements HandlerInterceptor {
             String method = request.getMethod();
             String uri = request.getRequestURI();
             String requestedCurrency = request.getParameter(CURRENCY_REQUEST_PARAM);
-            LOGGER.info("Incoming {} request to [{}] endpoint with {} requested currency", method, uri, sanitize(requestedCurrency));
+            String sanitizedRequestedCurrency = sanitize(requestedCurrency);
+            LOGGER.info("Incoming {} request to [{}] endpoint with {} requested currency", method, uri, sanitizedRequestedCurrency);
         }
         return true;
     }
