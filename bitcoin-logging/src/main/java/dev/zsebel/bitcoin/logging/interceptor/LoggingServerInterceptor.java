@@ -19,7 +19,8 @@ public class LoggingServerInterceptor implements HandlerInterceptor {
             String method = request.getMethod();
             String uri = request.getRequestURI();
             String requestedCurrency = request.getParameter(CURRENCY_REQUEST_PARAM);
-            LOGGER.info("Incoming {} request to [{}] endpoint with {} requested currency", method, uri, requestedCurrency);
+            String sanitizedRequestedCurrency = sanitize(requestedCurrency);
+            LOGGER.info("Incoming {} request to [{}] endpoint with {} requested currency", method, uri, sanitizedRequestedCurrency);
         }
         return true;
     }
@@ -33,7 +34,11 @@ public class LoggingServerInterceptor implements HandlerInterceptor {
         HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
     }
 
-    private static boolean isBitcoinApiRequest(String uri) {
+    private boolean isBitcoinApiRequest(String uri) {
         return uri.startsWith("/api/");
+    }
+
+    private String sanitize(final String currency) {
+        return currency.replaceAll("[\n\r]", "_");
     }
 }
