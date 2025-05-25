@@ -7,18 +7,23 @@ Simple demo application for mentoring purposes to demonstrate and practice integ
 Under the hood Bitcoin application uses Coinbase to fetch Bitcoin Price Indices from:
 
 ```
-http://api.coinbase.com/v2/exchange-rates?currency=BTC
+https://api.coinbase.com/v2/exchange-rates?currency=BTC
 ```
 
 ### Testing the application
+#### Prerequisites
+
+- Java version: 21
+- Maven version: 3.6.3 and above (recommended 3.9.x)
+
 #### Running locally
 There are a few options (from more flexible to least)
-1. You can just use the SpringBoot run functionality that is default in IntelliJ or SpringTools in Eclipse
-2. Start application with Maven
+1. Run the Spring Boot application from IntelliJ IDEA or SpringTools in Eclipse
+2. Start application using the following Maven command
     ```
     mvn spring-boot:run
     ```
-3. Package the jar file and run it
+3. Package the application and run the jar file
     ```
     mvn clean package
     java -jar bitcoin-appliction/target/bitcoin-app-exec.jar
